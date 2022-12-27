@@ -20,7 +20,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class="iq-waves-effect"><i class="las la-laptop-code iq-arrow-left"></i><span>Accounts</span></a>
+                    <a href="{{ route("get.accounts") }}" class="iq-waves-effect"><i class="las la-laptop-code iq-arrow-left"></i><span>Accounts</span></a>
                 </li>
 
 

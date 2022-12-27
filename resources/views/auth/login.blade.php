@@ -42,15 +42,26 @@
                         <div class="sign-in-from">
                             <h1 class="mb-0 text-center">Sign in</h1>
                             <p class="text-center text-dark">Enter your email address and password to access admin panel.</p>
-                            <form class="mt-4">
+                            <form class="mt-4" action="{{ route("login") }}" method="post">
+                                @csrf
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control mb-0" id="exampleInputEmail1" placeholder="Enter email">
+                                    <input type="email" name="email" value="{{ old("email") }}"  class="form-control mb-0 @error('email') is-invalid @enderror" id="exampleInputEmail1" placeholder="Enter email">
+                                    @error("email")
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Password</label>
                                     <a href="#" class="float-right">Forgot password?</a>
-                                    <input type="password" class="form-control mb-0" id="exampleInputPassword1" placeholder="Password">
+                                    <input type="password" name="password" class="form-control mb-0 @error('password') is-invalid @enderror" id="exampleInputPassword1" placeholder="Password">
+                                    @error("password")
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="d-inline-block w-100">
                                     <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
