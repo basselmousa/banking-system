@@ -21,7 +21,15 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get("/account", [\App\Http\Controllers\Dashboard\AccountController::class, 'index'])->name("get.accounts");
-Route::post("/account", [\App\Http\Controllers\Dashboard\AccountController::class, 'create'])->name("create.accounts");
-Route::put("/account/{account}", [\App\Http\Controllers\Dashboard\AccountController::class, 'changeStatus'])->name("changeStatus.accounts");
-Route::delete("/account/{account}", [\App\Http\Controllers\Dashboard\AccountController::class, 'destroy'])->name("delete.accounts");
+Route::middleware("auth")->group(function(){
+    Route::get("/account", [\App\Http\Controllers\Dashboard\AccountController::class, 'index'])->name("get.accounts");
+    Route::post("/account", [\App\Http\Controllers\Dashboard\AccountController::class, 'create'])->name("create.accounts");
+    Route::put("/account/{account}", [\App\Http\Controllers\Dashboard\AccountController::class, 'changeStatus'])->name("changeStatus.accounts");
+    Route::delete("/account/{account}", [\App\Http\Controllers\Dashboard\AccountController::class, 'destroy'])->name("delete.accounts");
+
+
+    Route::get("deposit", [\App\Http\Controllers\Dashboard\DepositController::class, "index"])->name("get.deposits");
+    Route::post("deposit", [\App\Http\Controllers\Dashboard\DepositController::class, "create"])->name("create.deposits");
+    Route::delete("deposit/{deposit}", [\App\Http\Controllers\Dashboard\DepositController::class, "destroy"])->name("delete.deposits");
+
+});
