@@ -39,7 +39,7 @@
                             class="las la-mail-bulk iq-arrow-left"></i><span>Transactions</span><i
                             class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                     <ul id="mailbox" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                        <li><a href="#"><i class="las la-inbox"></i>Withdrawal</a></li>
+                        <li><a href="{{route("get.withdrawal")}}"><i class="las la-inbox"></i>Withdrawal</a></li>
                         <li><a href="{{ route("get.deposits") }}"><i class="ri-mail-send-line"></i>Deposits</a></li>
                     </ul>
                 </li>

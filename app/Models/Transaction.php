@@ -10,4 +10,15 @@ class Transaction extends Model
     use HasFactory;
     protected $guarded =[];
 
+    public function account()
+    {
+        return $this->belongsTo(Account::class);
+
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(TransactionType::class, "transaction_type_id");
+    }
+
 }

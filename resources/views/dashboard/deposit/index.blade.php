@@ -77,7 +77,7 @@
                         <div class="form-group">
                             <label for="email">Account Number</label>
                             <select class="form-control" name="account_id" id="exampleFormControlSelect1">
-                                <option selected="" disabled="">Select your age</option>
+                                <option selected="" disabled="">Select Account</option>
                                 @foreach($accounts as $account)
                                     <option value="{{$account->id}}" {{ old("account_id") == $account->id ? "selected" : "" }}>{{ $account->account_number }}</option>
                                 @endforeach

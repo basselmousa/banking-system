@@ -32,4 +32,7 @@ Route::middleware("auth")->group(function(){
     Route::post("deposit", [\App\Http\Controllers\Dashboard\DepositController::class, "create"])->name("create.deposits");
     Route::delete("deposit/{deposit}", [\App\Http\Controllers\Dashboard\DepositController::class, "destroy"])->name("delete.deposits");
 
+    Route::get("withdrawal", [\App\Http\Controllers\Dashboard\TransactionController::class, "showWithdrawal"])->name("get.withdrawal");
+    Route::post("withdrawal", [\App\Http\Controllers\Dashboard\TransactionController::class, "withdrawal"])->name("create.withdrawal");
+
 });

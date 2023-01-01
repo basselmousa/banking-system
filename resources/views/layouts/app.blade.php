@@ -17,6 +17,12 @@
     <link rel="stylesheet" href="{{asset("css/style.css")}}">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{asset("css/responsive.css")}}">
+
+    <style>
+        .invalid-feedback{
+            display: block !important;
+        }
+    </style>
 </head>
 <body class="sidebar-main-active right-column-fixed">
 <div class="wrapper">
