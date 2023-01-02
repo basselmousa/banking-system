@@ -35,4 +35,6 @@ Route::middleware("auth")->group(function(){
     Route::get("withdrawal", [\App\Http\Controllers\Dashboard\TransactionController::class, "showWithdrawal"])->name("get.withdrawal");
     Route::post("withdrawal", [\App\Http\Controllers\Dashboard\TransactionController::class, "withdrawal"])->name("create.withdrawal");
 
+    Route::get("notification", [\App\Http\Controllers\Dashboard\NotificationController::class, "__invoke"])->name("get.notifications");
+
 });

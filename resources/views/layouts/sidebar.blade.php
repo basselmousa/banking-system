@@ -30,7 +30,7 @@
 
 
                 <li>
-                    <a href="#" class="iq-waves-effect"><i class="las la-bell iq-arrow-left"></i><span>notifications</span></a>
+                    <a href="{{route("get.notifications")}}" class="iq-waves-effect"><i class="las la-bell iq-arrow-left"></i><span>notifications</span></a>
                 </li>
 
 
