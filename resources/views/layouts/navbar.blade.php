@@ -7,9 +7,9 @@
                     <div class="hover-circle"><i class="ri-close-fill"></i></div>
                 </div>
                 <div class="iq-navbar-logo d-flex justify-content-between ml-3">
-                    <a href="index.html" class="header-logo">
+                    <a href="{{ route("home") }}" class="header-logo">
                         <img src="{{asset("images/logo.png")}}" class="img-fluid rounded" alt="">
-                        <span>FinDash</span>
+                        <span>Banking System</span>
                     </a>
                 </div>
             </div>

@@ -125,7 +125,7 @@
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between">
                                     <span class="">{{$deposit->period}} Months</span>
-                                  
+
                                 </div>
                             </div>
                         </div>
