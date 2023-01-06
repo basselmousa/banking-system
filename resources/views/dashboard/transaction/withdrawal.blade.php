@@ -25,35 +25,35 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($transactions as $transaction)
-                        <tr>
-                            <td>{{ $transaction->account->account_number }}</td>
-                            <td>{{ $transaction->account->bank_name }}</td>
-                            <td>{{ $transaction->type->description }}</td>
-                            <td>{{ $transaction->amount }} </td>
-                            <td>{{ $transaction->comment }} </td>
+                        @foreach($transactions as $transaction)
+                            <tr>
+                                <td>{{ $transaction->account->account_number }}</td>
+                                <td>{{ $transaction->account->bank_name }}</td>
+                                <td>{{ $transaction->type->description }}</td>
+                                <td>{{ $transaction->amount }} </td>
+                                <td>{{ $transaction->comment }} </td>
 
-                            <td>{{ $transaction->created_at }}</td>
-{{--                            <td>--}}
-{{--                                --}}{{--                                <button type="button" class="btn btn-secondary mb-3"  onclick=" event.preventDefault();--}}
-{{--                                --}}{{--                                     document.getElementById('change-status-{{$transaction->id}}').submit()--}}
-{{--                                --}}{{--                                  ">Change Status</button>--}}
-{{--                                --}}{{--                                <form id="change-status-{{$transaction->id}}" action="{{ route("changeStatus.accounts", $transaction->id) }}" method="post" class="hidden">--}}
-{{--                                --}}{{--                                    @method('PUT')--}}
-{{--                                --}}{{--                                    @csrf--}}
-{{--                                --}}{{--                                </form>--}}
+                                <td>{{ $transaction->created_at }}</td>
+    {{--                            <td>--}}
+    {{--                                --}}{{--                                <button type="button" class="btn btn-secondary mb-3"  onclick=" event.preventDefault();--}}
+    {{--                                --}}{{--                                     document.getElementById('change-status-{{$transaction->id}}').submit()--}}
+    {{--                                --}}{{--                                  ">Change Status</button>--}}
+    {{--                                --}}{{--                                <form id="change-status-{{$transaction->id}}" action="{{ route("changeStatus.accounts", $transaction->id) }}" method="post" class="hidden">--}}
+    {{--                                --}}{{--                                    @method('PUT')--}}
+    {{--                                --}}{{--                                    @csrf--}}
+    {{--                                --}}{{--                                </form>--}}
 
-{{--                                <button type="button" class="btn btn-danger mb-3"  onclick=" event.preventDefault();--}}
-{{--                                     document.getElementById('delete-{{$transaction->id}}').submit()--}}
-{{--                                 ">Delete</button>--}}
-{{--                                <form id="delete-{{$transaction->id}}" action="{{ route("delete.deposits", $transaction->id) }}" method="post" class="hidden">--}}
-{{--                                    @method('DELETE')--}}
-{{--                                    @csrf--}}
-{{--                                </form>--}}
+    {{--                                <button type="button" class="btn btn-danger mb-3"  onclick=" event.preventDefault();--}}
+    {{--                                     document.getElementById('delete-{{$transaction->id}}').submit()--}}
+    {{--                                 ">Delete</button>--}}
+    {{--                                <form id="delete-{{$transaction->id}}" action="{{ route("delete.deposits", $transaction->id) }}" method="post" class="hidden">--}}
+    {{--                                    @method('DELETE')--}}
+    {{--                                    @csrf--}}
+    {{--                                </form>--}}
 
-{{--                            </td>--}}
-                        </tr>
-                    @endforeach
+    {{--                            </td>--}}
+                            </tr>
+                        @endforeach
 
                     </tbody>
 
@@ -80,7 +80,7 @@
                             <label for="email">Sender Account Number</label>
                             <select class="form-control" name="account_id" id="exampleFormControlSelect1">
                                 <option selected="" disabled="">Select Account</option>
-                                @foreach($accounts as $account)
+                                @foreach($senderAccounts as $account)
                                     <option value="{{$account->id}}" {{ old("account_id") == $account->id ? "selected" : "" }}>{{ $account->account_number }}</option>
                                 @endforeach
                             </select>

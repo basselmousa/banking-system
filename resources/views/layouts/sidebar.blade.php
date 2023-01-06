@@ -16,7 +16,7 @@
             <ul id="iq-sidebar-toggle" class="iq-menu">
 
                 <li>
-                    <a href="#" class="iq-waves-effect"><i class="las la-home iq-arrow-left"></i><span>Dashboard</span></a>
+                    <a href="{{ route("home") }}" class="iq-waves-effect"><i class="las la-home iq-arrow-left"></i><span>Dashboard</span></a>
                 </li>
 
                 <li>

@@ -177,8 +177,13 @@
                     <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
                         <img src="{{asset("images/user/1.jpg")}}" class="img-fluid rounded mr-3" alt="user">
                         <div class="caption">
-                            <h6 class="mb-0 line-height">Barry Tech</h6>
-                            <p class="mb-0">Manager</p>
+                            <h6 class="mb-0 line-height">{{auth()->user()->name}}</h6>
+                            <p onclick="event.preventDefault();
+                                        document.getElementById('logout').submit();    " class="mb-0">logout</p>
+                            <form id="logout" action="{{route("logout")}}" method="post" class="d-none">
+                                @csrf
+
+                            </form>
                         </div>
                     </a>
 

@@ -20,7 +20,7 @@ class AccountController extends Controller
     public function create(Request $request)
     {
         $request->validate([
-            "account_number" => "required|max:21",
+            "account_number" => "required|digits:21|numeric",
             "bank_name" => "required"
         ]);
 
@@ -29,7 +29,7 @@ class AccountController extends Controller
             "bank_name" => $request->bank_name,
             "current_balance" => 0,
             "previous_balance" => 0,
-            "status" => $request->status,
+            "status" => $request->status ?? false,
             "user_id" => auth()->id()
         ]);
 

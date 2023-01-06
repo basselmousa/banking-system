@@ -17,11 +17,12 @@ class TransactionController extends Controller
 
     public function showWithdrawal()
     {
-        $accounts = auth()->user()->accounts;
+        $senderAccounts = auth()->user()->accounts;
+        $accounts = Account::all();
         $accountsId = Account::where("user_id", auth()->id())->get("id")->toArray();
         $transactions = Transaction::whereIn("account_id", $accountsId)->get();
 //        dd($transactions[0]->type);
-        return view("dashboard.transaction.withdrawal", compact("accounts", "transactions"));
+        return view("dashboard.transaction.withdrawal", compact("accounts", "senderAccounts","transactions"));
     }
 
     public function withdrawal(Request $request)
@@ -58,6 +59,17 @@ class TransactionController extends Controller
             "comment" => $request->comment,
         ]);
 
+        $sender = Account::find($request->account_id);
+        $sender->update([
+            "previous_balance" => $sender->current_balance,
+            "current_balance" => $sender->current_balance - $traSend->amount
+        ]);
+
+        $recieve = Account::find($request->to_account_id);
+        $recieve->update([
+            "previous_balance" => $recieve->current_balance,
+            "current_balance" => $recieve->current_balance + $traReceive->amount
+        ]);
         Notification::create([
             "title" => "Withdrawal Action Created",
             "description" => "New Withdrawal Created On " . $traSend->created_at . " And Transacted From " . $traSend->account->account_number . " To " . $traReceive->account->account_number,
